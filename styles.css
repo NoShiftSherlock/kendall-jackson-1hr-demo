@@ -709,35 +709,83 @@ h1, h2, h3, .serif {
 }
 .demo-ribbon .bolt { color: #ffd76e; }
 
-/* ---------- NBA partnership campaign pages ---------- */
-.campaign-switch { background: var(--paper); border-bottom: 1px solid var(--line); padding: 14px 0; }
-.campaign-switch .inner { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
-.campaign-switch .lbl { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); margin-right: 6px; }
-.campaign-pill { font-family: var(--mono); font-size: 12.5px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1px solid var(--line); background: var(--white); color: var(--gray); }
-.campaign-pill.active { background: var(--black); color: #fff; border-color: var(--black); }
+/* ---------- NBA-branded theme (Tip-Off / All-Star top sections) ----------
+   Palette + gradient lifted from nbaexperiences.com/nba-all-star-2027:
+   NBA red #c8102e -> NBA navy #051b37 / #041624. Their display type is a
+   licensed webfont ("Action NBA Web"); Anton is the closest free stand-in
+   for that heavy condensed look, paired with Oswald for labels/nav and
+   Roboto for body copy (matching their actual body font). */
+.nba-announce {
+  background: linear-gradient(90deg, #c8102e 0%, #051b37 100%);
+  color: #fff;
+  font-family: "Oswald", var(--sans);
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  text-align: center;
+  padding: 11px 16px;
+}
+.nba-announce b { font-weight: 700; }
+.nba-announce a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 
-.partner-strip { background: var(--paper); border-bottom: 1px solid var(--line); padding: 40px 0; }
-.partner-strip .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); margin-bottom: 22px; text-align: center; }
-.partner-logos { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
-.partner-logos .tile { height: 64px; width: 64px; background: #14110f; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 11px; flex: none; }
-.partner-logos .tile.host { height: 76px; width: 76px; box-shadow: 0 0 0 2px var(--gold); }
-.partner-logos img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.nba-header { background: #051b37; color: #fff; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.12); }
+.nba-header .brand { background: #fff; padding: 7px 14px; border-radius: 10px; display: inline-flex; align-items: center; }
+.nba-header .nav-links a { font-family: "Oswald", var(--sans); font-weight: 600; letter-spacing: .04em; }
+.nba-header .cart-pill { background: #c8102e; color: #fff; }
+.nba-header .cart-count { background: #fff; color: #c8102e; }
 
-.host-spotlight { background: var(--black); color: var(--white); padding: 56px 0; }
-.host-spotlight .row { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-.host-spotlight .logo-tile { height: 88px; width: 88px; background: #fff; border-radius: 18px; padding: 14px; display: flex; align-items: center; justify-content: center; flex: none; }
-.host-spotlight .logo-tile img { max-height: 100%; max-width: 100%; object-fit: contain; }
-.host-spotlight .txt h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(22px,2.6vw,30px); margin-bottom: 8px; }
-.host-spotlight .txt p { color: rgba(255,255,255,.75); font-size: 15px; max-width: 580px; margin: 0; }
-.host-spotlight .kick { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #ffd76e; margin-bottom: 10px; }
+.nba-switch { background: #04101f; border-bottom: 1px solid rgba(255,255,255,.08); padding: 14px 0; }
+.nba-switch .inner { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.nba-switch .lbl { font-family: "Oswald", var(--sans); font-weight: 600; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-right: 6px; }
+.nba-pill { font-family: "Oswald", var(--sans); font-weight: 600; font-size: 12.5px; letter-spacing: .03em; text-transform: uppercase; padding: 8px 16px; border-radius: var(--radius-pill); border: 1px solid rgba(255,255,255,.25); background: transparent; color: rgba(255,255,255,.7); }
+.nba-pill.active { background: #c8102e; color: #fff; border-color: #c8102e; }
 
-.nba-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; padding: 7px 14px; border-radius: var(--radius-pill); }
+.nba-hero { position: relative; color: #fff; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+.nba-hero-media { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.nba-hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(200,16,46,.82) 0%, rgba(5,27,55,.85) 42%, rgb(5,27,55) 82%, rgb(4,22,36) 100%);
+}
+.nba-hero-inner { position: relative; z-index: 2; padding: 60px 0; }
+.nba-kicker-outline {
+  font-family: "Anton", sans-serif; text-transform: uppercase; font-weight: 400; letter-spacing: .01em;
+  font-size: clamp(19px, 2.4vw, 28px); line-height: 1.1; color: transparent;
+  -webkit-text-stroke: 1.4px rgba(255,255,255,.9); margin-bottom: 8px;
+}
+.nba-kicker-solid {
+  font-family: "Anton", sans-serif; text-transform: uppercase; font-weight: 400; letter-spacing: .005em;
+  font-size: clamp(36px, 5.6vw, 64px); line-height: 1.03; color: #ff3b52; margin: 0 0 20px; max-width: 700px;
+}
+.nba-hero-sub { font-family: "Roboto", var(--sans); font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.88); max-width: 480px; }
+.nba-meta-row { display: flex; gap: 26px; flex-wrap: wrap; margin: 24px 0 0; padding: 0; list-style: none; font-family: "Roboto", var(--sans); font-size: 14px; color: rgba(255,255,255,.85); }
+.nba-meta-row li { display: inline-flex; align-items: center; gap: 8px; }
+.nba-hero-cta { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+.btn.nba-btn-red { background: #c8102e; color: #fff; }
+.btn.nba-btn-red:hover { opacity: .9; }
+
+.nba-partner-strip { background: #04101f; border-bottom: 1px solid rgba(255,255,255,.08); padding: 40px 0; }
+.nba-partner-strip .lbl { font-family: "Oswald", var(--sans); font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px; text-align: center; }
+.nba-partner-logos { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.nba-partner-logos .tile { height: 64px; width: 64px; background: #0b1f3a; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 11px; flex: none; }
+.nba-partner-logos .tile.host { box-shadow: 0 0 0 2px #fff; }
+.nba-partner-logos img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+.nba-host-spotlight { background: linear-gradient(90deg, #051b37 0%, #04101f 100%); color: #fff; padding: 56px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.nba-host-spotlight .row { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+.nba-host-spotlight .logo-tile { height: 88px; width: 88px; background: #fff; border-radius: 18px; padding: 14px; display: flex; align-items: center; justify-content: center; flex: none; }
+.nba-host-spotlight .logo-tile img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.nba-host-spotlight .kick { font-family: "Oswald", var(--sans); font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #ff3b52; margin-bottom: 10px; }
+.nba-host-spotlight h3 { font-family: "Anton", sans-serif; text-transform: uppercase; font-weight: 400; font-size: clamp(22px,2.6vw,32px); margin: 0 0 8px; letter-spacing: .01em; }
+.nba-host-spotlight p { color: rgba(255,255,255,.75); font-size: 15px; max-width: 580px; margin: 0; font-family: "Roboto", var(--sans); }
+
+.nba-badge { display: inline-flex; align-items: center; gap: 8px; font-family: "Oswald", var(--sans); font-weight: 600; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; padding: 7px 14px; border-radius: var(--radius-pill); }
 
 @media (max-width: 620px) {
-  .partner-logos { gap: 26px; }
-  .partner-logos img { height: 28px; }
-  .partner-logos img.host { height: 40px; }
-  .host-spotlight .row { flex-direction: column; text-align: center; }
+  .nba-partner-logos { gap: 26px; }
+  .nba-partner-logos .tile { height: 52px; width: 52px; }
+  .nba-host-spotlight .row { flex-direction: column; text-align: center; }
+  .nba-meta-row { flex-direction: column; gap: 10px; }
 }
 
 /* ---------- Responsive ---------- */

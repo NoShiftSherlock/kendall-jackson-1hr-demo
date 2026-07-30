@@ -7,26 +7,26 @@
 <meta name="description" content="Kendall-Jackson, the Official Wine Partner of the NBA — delivered to your Tip-Off Week watch party in under an hour via GoPuff + DoorDash." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Space+Mono:wght@400;700&family=Anton&family=Oswald:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="icon" href="assets/logo.png" />
 </head>
 <body>
 
-<div class="announce">
-  <span class="bolt">⚡</span> <b>🏀 NBA Tip-Off Week</b> — Kendall-Jackson delivered in under 1 hour. Powered by GoPuff + DoorDash. <a href="#onehour">Check your address →</a>
+<div class="nba-announce">
+  <b>🏀 NBA Tip-Off Week</b> — Kendall-Jackson delivered in under 1 hour. Powered by GoPuff + DoorDash. <a href="#onehour">Check your address →</a>
 </div>
 
-<header class="header light">
+<header class="header nba-header">
   <nav class="nav">
     <a class="brand" href="index.html"><img src="assets/logo.png" alt="Kendall-Jackson" style="height:44px" /></a>
-    <div class="nav-links" style="font-family:var(--nav-font);letter-spacing:.03em;text-transform:uppercase;font-size:14px">
+    <div class="nav-links" style="font-size:14px">
       <a href="index.html#shop">Shop Wines</a>
       <a href="index.html#shop">About Us</a>
       <a href="index.html#shop">Club '82</a>
       <a href="index.html#shop">Visit Us</a>
       <a href="kj-now.html">KJ Now</a>
-      <a href="nba-tipoff.html" style="color:var(--gold)">🏀 NBA</a>
+      <a href="nba-tipoff.html" style="color:#ff3b52">🏀 NBA</a>
     </div>
     <div class="nav-right">
       <a class="hide-sm" href="#">Store locator</a>
@@ -38,33 +38,39 @@
 </header>
 
 <!-- campaign switcher -->
-<div class="campaign-switch">
+<div class="nba-switch">
   <div class="inner">
     <span class="lbl">🏀 NBA Campaigns</span>
-    <span class="campaign-pill active">Tip-Off Week</span>
-    <a href="nba-allstar-2027.html" class="campaign-pill">All-Star 2027 · Phoenix</a>
+    <span class="nba-pill active">Tip-Off Week</span>
+    <a href="nba-allstar-2027.html" class="nba-pill">All-Star 2027 · Phoenix</a>
   </div>
 </div>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-media" style="background-image:url('assets/nba-hero.jpg')"></div>
-  <div class="wrap hero-inner">
-    <div class="nba-badge" style="margin-bottom:22px"><img src="assets/nba-logo-white.png" alt="NBA" style="height:26px" /> Official Wine Partner of the NBA</div>
-    <h1 class="serif">Tip-off night, poured in under an hour.</h1>
-    <p class="sub">Opening week starts under the lights. Get your Kendall-Jackson favorites delivered from a GoPuff or DoorDash near you — before the opening tip.</p>
-    <div class="hero-cta">
+<!-- Hero (styled after nbaexperiences.com/nba-all-star-2027) -->
+<section class="nba-hero">
+  <div class="nba-hero-media" style="background-image:url('assets/nba-hero.jpg')"></div>
+  <div class="wrap nba-hero-inner">
+    <div class="nba-badge" style="margin-bottom:22px"><img src="assets/nba-logo-white.png" alt="NBA" style="height:22px" /> Official Wine Partner of the NBA</div>
+    <div class="nba-kicker-outline">Kendall-Jackson x NBA</div>
+    <h1 class="nba-kicker-solid">Tip-Off Week</h1>
+    <p class="nba-hero-sub">Opening week starts under the lights. Get your Kendall-Jackson favorites delivered from a GoPuff or DoorDash near you — before the opening tip.</p>
+    <ul class="nba-meta-row">
+      <li><span style="margin-right:6px">📅</span>Season opener week</li>
+      <li><span style="margin-right:6px">⚡</span>Under 1 hour</li>
+      <li><span style="margin-right:6px">🍷</span>5 Starting Five wines</li>
+    </ul>
+    <div class="hero-cta nba-hero-cta">
       <a href="#shop" class="btn btn-white">Shop the Starting Five</a>
-      <a href="#onehour" class="btn btn-outline" style="color:#fff">⚡ Get it in 1 hour</a>
+      <a href="#onehour" class="btn nba-btn-red">⚡ Get it in 1 hour</a>
     </div>
   </div>
 </section>
 
 <!-- Partner strip -->
-<section class="partner-strip">
+<section class="nba-partner-strip">
   <div class="wrap">
     <div class="lbl">Proud Wine Partner Of</div>
-    <div class="partner-logos">
+    <div class="nba-partner-logos">
       <div class="tile"><img src="assets/nba-team-nuggets.png" alt="Denver Nuggets" /></div>
       <div class="tile"><img src="assets/nba-team-warriors.png" alt="Golden State Warriors" /></div>
       <div class="tile"><img src="assets/nba-team-bucks.png" alt="Milwaukee Bucks" /></div>
