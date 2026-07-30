@@ -77,6 +77,51 @@ document.addEventListener("DOMContentLoaded", () => {
   if (c) setCartCount(parseInt(c, 10));
 });
 
+// ---------- NBA "Starting Five" (Tip-Off / All-Star campaign pages) ----------
+const STARTING_FIVE_NAMES = [
+  "Vintner's Reserve Chardonnay",
+  "Vintner's Reserve Cabernet Sauvignon",
+  "Vintner's Reserve Sauvignon Blanc",
+  "Vintner's Reserve Pinot Noir",
+  "Vintner's Reserve Chenin Blanc",
+];
+const STARTING_FIVE = PRODUCTS.filter(p => STARTING_FIVE_NAMES.includes(p.name));
+
+function nbaCardHTML(p) {
+  const lineClass = p.line.toLowerCase() === "rosé" ? "rose" : p.line.toLowerCase();
+  return `
+  <a class="card" href="product.html">
+    <div class="thumb">
+      <div class="badges">
+        <span class="tag line ${lineClass}"><span class="dot"></span> ${p.line}</span>
+        <span class="tag status">🏀 Starting Five</span>
+        <span class="tag onehr">⚡ 1-hr</span>
+      </div>
+      <img src="${p.img}" alt="${p.name}" loading="lazy" />
+    </div>
+    <div class="body">
+      <div class="line-label">Vintner's Reserve · ${p.vintage}</div>
+      <h3>${p.name.replace("Vintner's Reserve ", "")}</h3>
+      <div class="stats"><span><b>${p.region}</b></span><span><b>750ml</b> bottle</span><span><b>13.5%</b> ABV</span></div>
+      <div class="rating">★ ${p.rating} reviews</div>
+      <div class="foot">
+        <span class="price">${p.price}</span>
+        <button class="add" onclick="event.preventDefault();addToCart()">Add</button>
+      </div>
+    </div>
+  </a>`;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const nbaGrid = document.getElementById("nbaGrid");
+  if (nbaGrid) nbaGrid.innerHTML = STARTING_FIVE.map(nbaCardHTML).join("");
+});
+
+// generic "check availability" reveal, used by the NBA campaign pages
+function checkAddr(resultId) {
+  const el = document.getElementById(resultId);
+  if (el) el.classList.add("show");
+}
+
 // KJ Now address check -> reveal grid
 function nowCheck() {
   const el = document.getElementById("nowAddrState");
@@ -278,6 +323,7 @@ function injectMobileMenu() {
         <a href="index.html#shop">Club '82</a>
         <a href="index.html#shop">Visit Us</a>
         <a href="kj-now.html" class="${active === "kj-now" ? "active" : ""}">KJ Now</a>
+        <a href="nba-tipoff.html" style="color:var(--gold)">🏀 NBA</a>
       </div>
       <div class="mm-cta"><a href="kj-now.html" class="btn btn-white btn-block">⚡ Check your address</a></div>
       <div class="mm-sub">

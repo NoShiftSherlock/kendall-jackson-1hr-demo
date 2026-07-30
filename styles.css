@@ -709,6 +709,37 @@ h1, h2, h3, .serif {
 }
 .demo-ribbon .bolt { color: #ffd76e; }
 
+/* ---------- NBA partnership campaign pages ---------- */
+.campaign-switch { background: var(--paper); border-bottom: 1px solid var(--line); padding: 14px 0; }
+.campaign-switch .inner { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.campaign-switch .lbl { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); margin-right: 6px; }
+.campaign-pill { font-family: var(--mono); font-size: 12.5px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1px solid var(--line); background: var(--white); color: var(--gray); }
+.campaign-pill.active { background: var(--black); color: #fff; border-color: var(--black); }
+
+.partner-strip { background: var(--paper); border-bottom: 1px solid var(--line); padding: 40px 0; }
+.partner-strip .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); margin-bottom: 22px; text-align: center; }
+.partner-logos { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partner-logos .tile { height: 64px; width: 64px; background: #14110f; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 11px; flex: none; }
+.partner-logos .tile.host { height: 76px; width: 76px; box-shadow: 0 0 0 2px var(--gold); }
+.partner-logos img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+.host-spotlight { background: var(--black); color: var(--white); padding: 56px 0; }
+.host-spotlight .row { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+.host-spotlight .logo-tile { height: 88px; width: 88px; background: #fff; border-radius: 18px; padding: 14px; display: flex; align-items: center; justify-content: center; flex: none; }
+.host-spotlight .logo-tile img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.host-spotlight .txt h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(22px,2.6vw,30px); margin-bottom: 8px; }
+.host-spotlight .txt p { color: rgba(255,255,255,.75); font-size: 15px; max-width: 580px; margin: 0; }
+.host-spotlight .kick { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #ffd76e; margin-bottom: 10px; }
+
+.nba-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: #fff; padding: 7px 14px; border-radius: var(--radius-pill); }
+
+@media (max-width: 620px) {
+  .partner-logos { gap: 26px; }
+  .partner-logos img { height: 28px; }
+  .partner-logos img.host { height: 40px; }
+  .host-spotlight .row { flex-direction: column; text-align: center; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
   .delivery-band .grid { grid-template-columns: 1fr; gap: 36px; }
