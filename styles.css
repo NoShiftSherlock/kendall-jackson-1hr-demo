@@ -17,6 +17,8 @@
   --gray: #6b6259;
   --gray-2: #8a8074;
   --gold: #a9702e;          /* KJ brass/gold accent */
+  --burgundy: #92021c;      /* kj.com promo bar red */
+  --brass-lt: #c8af83;      /* kj.com light brass */
   --gopuff: #009f8f;        /* GoPuff teal */
   --doordash: #eb1700;      /* DoorDash red */
   --radius-pill: 999px;
@@ -807,4 +809,159 @@ h1, h2, h3, .serif {
   .co-row { grid-template-columns: 1fr; }
   .footer .top { grid-template-columns: 1fr; }
   .wrap { padding: 0 18px; }
+}
+
+/* ============================================================
+   EVERGREEN KJ NOW LAYER
+   Added for the always-on delivery landing page. Replaces the
+   NBA campaign framing with occasion-led merchandising.
+   ============================================================ */
+
+/* kj.com's real burgundy promo bar */
+.kj-promo {
+  background: var(--burgundy);
+  color: #fff;
+  text-align: center;
+  padding: 13px 16px;
+  font-family: var(--nav-font);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.kj-promo a { text-decoration: underline; text-underline-offset: 3px; }
+.kj-promo .sub { display: block; font-size: 11px; opacity: .85; letter-spacing: .08em; }
+
+/* "Ships in 2-4 days" tag for SKUs outside the delivery pilot */
+.tag.ships {
+  background: transparent;
+  color: var(--gray);
+  border: 1px solid var(--line);
+}
+
+/* Landing-page header: stripped back, with an explicit way home */
+.now-topbar {
+  background: var(--offwhite);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 50;
+}
+.now-topbar .inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: center; gap: 20px;
+}
+.now-topbar .brand img { height: 42px; width: auto; }
+.now-topbar .back {
+  font-family: var(--nav-font); text-transform: uppercase; letter-spacing: .08em;
+  font-size: 12px; color: var(--gray); display: inline-flex; align-items: center; gap: 7px;
+}
+.now-topbar .back:hover { color: var(--ink); }
+.now-topbar .spacer { margin-left: auto; }
+.now-wordmark {
+  font-family: var(--nav-font); text-transform: uppercase; letter-spacing: .18em;
+  font-size: 12px; color: var(--gold); padding-left: 20px; border-left: 1px solid var(--line);
+}
+
+/* Occasion cards */
+.occ-section { background: var(--paper); padding: 78px 0; }
+.occ-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px;
+}
+.occ-card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 26px 26px; display: flex; flex-direction: column;
+}
+.occ-icon { font-size: 26px; line-height: 1; margin-bottom: 18px; }
+.occ-card h3 {
+  font-family: var(--serif); font-size: 25px; font-weight: 400;
+  line-height: 1.08; letter-spacing: -.01em; margin: 0 0 10px;
+}
+.occ-card p { font-size: 14.5px; color: var(--gray); margin: 0 0 18px; line-height: 1.55; }
+.occ-pick {
+  margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line);
+  font-family: var(--nav-font); text-transform: uppercase; letter-spacing: .07em;
+  font-size: 11px; color: var(--gray-2);
+}
+.occ-pick b { color: var(--gold); font-weight: 700; }
+
+/* Tasting note under each KJ Now card title */
+.now-note { font-size: 13px; color: var(--gray); margin: 6px 0 0; line-height: 1.45; }
+
+/* The "this is a separate checkout" disclosure block.
+   Answers the promo/margin conflict Carolyn raised on 8.11. */
+.now-disclosure {
+  background: var(--offwhite);
+  border-top: 3px solid var(--burgundy);
+  padding: 46px 0;
+}
+.now-disclosure .grid2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 34px;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
+}
+.now-disclosure h3 {
+  font-family: var(--nav-font); text-transform: uppercase; letter-spacing: .1em;
+  font-size: 12px; font-weight: 700; color: var(--burgundy); margin: 0 0 14px;
+}
+.now-disclosure p { font-size: 14px; color: var(--ink); margin: 0 0 10px; line-height: 1.6; }
+.now-disclosure .fine { font-size: 12.5px; color: var(--gray); }
+
+/* 21+ delivery note */
+.age-note {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--nav-font); text-transform: uppercase; letter-spacing: .08em;
+  font-size: 11px; color: var(--gray);
+  border: 1px solid var(--line); border-radius: var(--radius-pill);
+  padding: 7px 14px;
+}
+
+@media (max-width: 900px) {
+  .occ-grid { grid-template-columns: repeat(2, 1fr); }
+  .now-disclosure .grid2 { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 620px) {
+  .occ-grid { grid-template-columns: 1fr; }
+  .now-topbar .inner { padding: 12px 18px; gap: 12px; }
+  .now-wordmark { padding-left: 12px; }
+  .kj-promo { font-size: 11px; letter-spacing: .04em; }
+}
+
+/* ABV badge: the shared rule sizes for a short number like "30g". An ABV
+   string is longer, so shrink it and give it a chip background so it reads
+   over the bottle rather than through it. */
+.now-thumb .now-protein {
+  font-family: var(--nav-font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.1;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 6px 11px 5px;
+  text-align: center;
+}
+.now-thumb .now-protein small {
+  font-family: var(--nav-font); font-size: 8.5px; letter-spacing: .12em; margin-top: 1px;
+}
+
+/* Five hero SKUs sit in one row on desktop, so the set reads as "five wines"
+   instead of a 4-up grid with an orphan. */
+@media (min-width: 1100px) {
+  .now-grid { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .now-body h3 { font-size: 15px; }
+}
+@media (max-width: 1099px) and (min-width: 901px) {
+  .now-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Grid children default to min-width:auto, which lets long content push the
+   delivery band 1px past the viewport on narrow screens. */
+.delivery-band .grid > *, .now-hero .grid > * { min-width: 0; }
+
+/* On mobile the "KJ Now" wordmark is redundant (the hero says it), and dropping
+   it keeps the logo, the back link and the cart on one line. The back link
+   stays visible at every width because it is the only route home. */
+@media (max-width: 620px) {
+  .now-wordmark { display: none; }
+  .now-topbar .back { font-size: 11px; letter-spacing: .05em; white-space: nowrap; }
+  .now-topbar .brand img { height: 34px; }
 }

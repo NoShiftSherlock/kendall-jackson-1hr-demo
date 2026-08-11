@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>KJ Now — Delivered in under an hour | Kendall-Jackson</title>
-<meta name="description" content="KJ Now: your favorite Kendall-Jackson wines delivered in under an hour, at the same price as the shelf. Powered by GoPuff + DoorDash." />
+<title>KJ Now — Kendall-Jackson delivered in under an hour</title>
+<meta name="description" content="KJ Now: five Kendall-Jackson favorites delivered in under an hour from a licensed retailer near you, at the same price as the shelf." />
+<meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -14,27 +15,19 @@
 <body>
 
 <div class="announce">
-  <span class="bolt">⚡</span> <b>Now delivering in under 1 hour in New York</b> — powered by GoPuff + DoorDash. <a href="#now">Check your address →</a>
+  <span class="bolt">⚡</span> <b>One-hour delivery, now live in New York</b> — from a licensed retailer near you. <a href="#now">Check your address →</a>
 </div>
 
-<header class="header light">
-  <nav class="nav">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Kendall-Jackson" style="height:44px" /></a>
-    <div class="nav-links" style="font-family:var(--nav-font);letter-spacing:.03em;text-transform:uppercase;font-size:14px">
-      <a href="index.html#shop">Shop Wines</a>
-      <a href="index.html#shop">About Us</a>
-      <a href="index.html#shop">Club '82</a>
-      <a href="index.html#shop">Visit Us</a>
-      <a href="kj-now.html" style="color:var(--gold)">KJ Now</a>
-      <a href="nba-tipoff.html" style="color:var(--gold)">🏀 NBA</a>
-    </div>
-    <div class="nav-right">
-      <a class="hide-sm" href="#">Store locator</a>
-      <a class="hide-sm" href="#">Trade &amp; wholesale</a>
-      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-      <a href="checkout.html" class="cart-pill" onclick="event.preventDefault();openCart()">Cart <span class="cart-count" id="cartCount">4</span></a>
-    </div>
-  </nav>
+<!-- Stripped-back landing header. Targeted traffic lands here, so the nav is
+     minimal, but the route back to kj.com is explicit. -->
+<header class="now-topbar">
+  <div class="inner">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Kendall-Jackson" /></a>
+    <span class="now-wordmark">KJ Now</span>
+    <span class="spacer"></span>
+    <a class="back" href="index.html">← Back to kj.com</a>
+    <a href="checkout.html" class="cart-pill" onclick="event.preventDefault();openCart()">Cart <span class="cart-count" id="cartCount">4</span></a>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -43,27 +36,30 @@
     <div>
       <div class="kick">⚡ On-demand</div>
       <div class="eyebrow">KJ Now</div>
-      <h1 class="serif">Delivered in under an hour.</h1>
+      <h1 class="serif">The bottle you meant to pick up, at your door in an hour.</h1>
       <div class="facts">
-        <div><span class="k">Speed</span> Under 60 minutes to your door</div>
-        <div><span class="k">Price</span> Same price as the shelf — no markup</div>
-        <div><span class="k">Hours</span> Available 10:00 AM – 11:00 PM daily, 21+</div>
-        <div><span class="k">Coverage</span> New York metro · more cities soon</div>
+        <div><span class="k">Speed</span> Under 60 minutes, most NYC addresses</div>
+        <div><span class="k">Price</span> Same price as the shelf, no markup</div>
+        <div><span class="k">Hours</span> 10:00 AM – 11:00 PM daily</div>
+        <div><span class="k">Selection</span> Five Vintner's Reserve favorites</div>
       </div>
       <div class="chips-row retailer-chips">
         <span class="chip"><img class="logo" src="assets/gopuff-icon.png" alt="GoPuff" /> Gopuff</span>
         <span class="chip"><img class="logo" src="assets/doordash-icon.svg" alt="DoorDash" /> DoorDash</span>
         <span class="delivery-badge"><span class="bolt">⚡</span> Under 1 hr</span>
       </div>
+      <div style="margin-top:22px">
+        <span class="age-note">🪪 21+ · ID checked at the door</span>
+      </div>
     </div>
     <div class="now-visual">
       <div class="float-badge"><span class="bolt">⚡</span> ~48 min near you</div>
-      <img src="assets/bottle-chardonnay.png" alt="Kendall-Jackson Vintner's Reserve Chardonnay available on demand" />
+      <img src="assets/bottle-chardonnay.png" alt="Kendall-Jackson Vintner's Reserve Chardonnay, available on demand" />
     </div>
   </div>
 </section>
 
-<!-- ADDRESS BAR -->
+<!-- STICKY ADDRESS BAR -->
 <div class="now-addrbar">
   <div class="wrap inner">
     <span class="lbl">Deliver to</span>
@@ -76,32 +72,65 @@
   </div>
 </div>
 
-<!-- GRID -->
+<!-- THE FIVE -->
 <section class="now-section">
   <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Available near you</div>
+        <h2 class="serif">Five wines,<br/>ready in an hour.</h2>
+      </div>
+      <p>These five Vintner's Reserve bottles have the deepest retail coverage in the metro, so they are the ones we can get to you tonight. The full Kendall-Jackson catalog still ships from kj.com.</p>
+    </div>
     <div class="now-gridwrap show" id="nowGridWrap">
       <div class="now-grid" id="nowGrid"><!-- injected by app.js --></div>
       <div class="now-disclaimer">
-        Products and pricing shown reflect live GoPuff / DoorDash inventory near you. Same 750ml bottles as the shelf — your order still lands in Kendall-Jackson's account like any other. Must be 21+ to purchase.
+        Selection and pricing reflect live inventory at licensed retailers near the address you entered. Availability changes by neighborhood and time of day.
       </div>
     </div>
   </div>
 </section>
 
-<!-- reassurance band -->
-<section class="how" style="padding:70px 0">
+<!-- OCCASIONS: the evergreen replacement for the NBA moment framing -->
+<section class="occ-section">
   <div class="wrap">
-    <div class="eyebrow">Why KJ Now</div>
-    <h2 class="serif" style="font-size:clamp(28px,3.4vw,42px);margin-top:12px;max-width:640px">A fast, small first yes — that graduates to full DTC orders.</h2>
-    <div class="steps now-steps-3">
-      <div class="step"><div class="icon">⚡</div><h3>Need-it-now, captured</h3><p>Keep the impulse sale on kj.com instead of losing it to retail or a marketplace.</p></div>
-      <div class="step"><div class="icon">🧾</div><h3>Same price as the shelf</h3><p>No surprise markup. Delivery is a small, transparent add-on at checkout.</p></div>
-      <div class="step"><div class="icon">📦</div><h3>No new ops</h3><p>GoPuff + DoorDash act as the delivery 3PL. No warehouse changes, no new fleet — your 3PL keeps fulfilling standard shipping exactly as it does today.</p></div>
+    <div class="eyebrow">When an hour matters</div>
+    <h2 class="serif" style="font-size:clamp(30px,3.6vw,46px);margin-top:12px;max-width:620px">Most wine purchases are decided in the last hour before they're needed.</h2>
+    <div class="occ-grid" id="occGrid"><!-- injected by app.js --></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="wrap">
+    <div class="eyebrow">How KJ Now works</div>
+    <h2 class="serif" style="font-size:clamp(28px,3.4vw,42px);margin-top:12px;max-width:660px">Enter an address, pick a bottle, open the door.</h2>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div class="icon">📍</div><h3>Enter your address</h3><p>We check live inventory at licensed retailers around you, right here on kj.com.</p></div>
+      <div class="step"><div class="num">02</div><div class="icon">🍷</div><h3>Pick what's nearby</h3><p>Only wines actually in stock near you appear, so nothing sells out between cart and door.</p></div>
+      <div class="step"><div class="num">03</div><div class="icon">⚡</div><h3>We route the order</h3><p>The nearest stocked retailer picks and dispatches it. Nothing changes about how kj.com ships.</p></div>
+      <div class="step"><div class="num">04</div><div class="icon">🪪</div><h3>Doorstep in an hour</h3><p>An adult 21 or over signs with valid ID. Typical NYC delivery runs about 48 minutes.</p></div>
     </div>
     <div class="assurance">
-      <span><span class="tick">✓</span> Order &amp; customer record stay with Kendall-Jackson</span>
-      <span><span class="tick">✓</span> Same checkout &amp; account</span>
-      <span><span class="tick">✓</span> Go live in 2–3 weeks</span>
+      <span><span class="tick">✓</span> No new app to download</span>
+      <span><span class="tick">✓</span> Same price as the shelf</span>
+      <span><span class="tick">✓</span> You never leave kj.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLOSURE: answers the promo + margin conflict raised on 8.11 -->
+<section class="now-disclosure">
+  <div class="grid2">
+    <div>
+      <h3>About KJ Now orders</h3>
+      <p>KJ Now orders are fulfilled and sold by licensed third-party retailers in your area, not by the Kendall-Jackson winery. That is what makes one-hour delivery possible.</p>
+      <p class="fine">Because these are retail sales, kj.com promotions do not apply. The 20% off four or more bottles offer and Club '82 pricing are available on standard shipping orders at kj.com.</p>
+    </div>
+    <div>
+      <h3>Your account and order history</h3>
+      <p>KJ Now checkout is separate from your kj.com account, so these orders will not appear in your kj.com order history.</p>
+      <p class="fine">Questions about a KJ Now delivery? Email ondemand@kj.com and our team will track it down, usually within two hours. For shipped orders, contact kj.com customer care as usual.</p>
     </div>
   </div>
 </section>
@@ -110,16 +139,16 @@
   <div class="wrap">
     <div class="top">
       <div class="updates">
-        <h3 class="serif">Don't miss out on Kendall-Jackson updates.</h3>
+        <h3 class="serif">Join the Kendall-Jackson list.</h3>
         <div class="toggle"><button class="btn btn-white">Email</button><button class="btn btn-outline" style="color:#fff">SMS</button></div>
         <div class="subscribe"><input placeholder="Enter Your Email." /><button>›</button></div>
       </div>
-      <div><div class="colhead">Support</div><ul><li><a href="#">Track your order</a></li><li><a href="#">Help center</a></li><li><a href="#">FAQs</a></li></ul></div>
-      <div><div class="colhead">About</div><ul><li><a href="#">Our story</a></li><li><a href="#">Our vineyards</a></li></ul></div>
-      <div><div class="colhead">KJ Now</div><ul><li><a href="kj-now.html">Check availability</a></li><li><a href="index.html#onehour">How it works</a></li><li><a href="#">Delivery zones</a></li></ul></div>
-      <div><div class="colhead">Legal</div><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+      <div><div class="colhead">Shop</div><ul><li><a href="index.html#shop">All wines</a></li><li><a href="index.html#shop">Vintner's Reserve</a></li><li><a href="index.html">Back to kj.com</a></li></ul></div>
+      <div><div class="colhead">KJ Now</div><ul><li><a href="#now">Check availability</a></li><li><a href="#">Delivery zones</a></li><li><a href="#">Delivery FAQ</a></li></ul></div>
+      <div><div class="colhead">Support</div><ul><li><a href="#">Track your order</a></li><li><a href="#">Contact us</a></li></ul></div>
+      <div><div class="colhead">Legal</div><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms of sale</a></li></ul></div>
     </div>
-    <div class="base"><span>© 2026 Kendall-Jackson</span><span>KJ Now · one-hour delivery powered by Vesper Commerce · GoPuff + DoorDash</span></div>
+    <div class="base"><span>© 2026 Kendall-Jackson Wine Estates. Please enjoy responsibly. 21+</span><span>KJ Now · one-hour delivery powered by Vesper Commerce</span></div>
   </div>
 </footer>
 

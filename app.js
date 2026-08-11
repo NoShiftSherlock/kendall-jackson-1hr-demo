@@ -1,27 +1,32 @@
 /* Kendall-Jackson × Vesper Commerce — 1-hour delivery mockup interactions */
 
 // ---------- Product catalog (homepage grid) ----------
+// `delivery: true` marks the five hero SKUs enabled for 1-hour delivery in the
+// pilot. The rest of the catalog still ships from Wine Direct as it does today.
 const PRODUCTS = [
-  { line:"White", name:"Vintner's Reserve Chardonnay", img:"assets/bottle-chardonnay.png",  vintage:"2024", region:"California",     price:"$17.00", status:"Best seller", rating:"4.6 · 3,204" },
-  { line:"White", name:"Vintner's Reserve Sauvignon Blanc", img:"assets/bottle-sauvblanc.png", vintage:"2024", region:"California",  price:"$15.00", status:"", rating:"4.5 · 1,187" },
-  { line:"Red",   name:"Vintner's Reserve Pinot Noir", img:"assets/bottle-pinotnoir.png",    vintage:"2024", region:"California",     price:"$20.00", status:"Best seller", rating:"4.6 · 1,540" },
-  { line:"Red",   name:"Vintner's Reserve Cabernet Sauvignon", img:"assets/bottle-cabernet.png", vintage:"2023", region:"Sonoma County", price:"$20.00", status:"", rating:"4.5 · 972" },
-  { line:"Rosé",  name:"Vintner's Reserve Rosé", img:"assets/bottle-rose.png",               vintage:"2024", region:"California",     price:"$17.00", status:"New", rating:"4.4 · 318" },
-  { line:"White", name:"Vintner's Reserve Chenin Blanc", img:"assets/bottle-cheninblanc.png", vintage:"2024", region:"California",    price:"$17.00", status:"", rating:"4.3 · 240" },
-  { line:"Red",   name:"Vintner's Reserve Merlot", img:"assets/bottle-merlot.png",            vintage:"2023", region:"Sonoma County", price:"$20.00", status:"", rating:"4.4 · 501" },
-  { line:"White", name:"Vintner's Reserve Riesling", img:"assets/bottle-riesling.png",        vintage:"2024", region:"Monterey County", price:"$15.00", status:"", rating:"4.5 · 289" },
+  { line:"White", name:"Vintner's Reserve Chardonnay", img:"assets/bottle-chardonnay.png",  vintage:"2024", region:"California",     price:"$17.00", status:"Best seller", rating:"4.6 · 3,204", delivery:true },
+  { line:"White", name:"Vintner's Reserve Sauvignon Blanc", img:"assets/bottle-sauvblanc.png", vintage:"2024", region:"California",  price:"$15.00", status:"", rating:"4.5 · 1,187", delivery:true },
+  { line:"Red",   name:"Vintner's Reserve Pinot Noir", img:"assets/bottle-pinotnoir.png",    vintage:"2024", region:"California",     price:"$20.00", status:"Best seller", rating:"4.6 · 1,540", delivery:true },
+  { line:"Red",   name:"Vintner's Reserve Cabernet Sauvignon", img:"assets/bottle-cabernet.png", vintage:"2023", region:"Sonoma County", price:"$20.00", status:"", rating:"4.5 · 972", delivery:true },
+  { line:"Rosé",  name:"Vintner's Reserve Rosé", img:"assets/bottle-rose.png",               vintage:"2024", region:"California",     price:"$17.00", status:"New", rating:"4.4 · 318", delivery:false },
+  { line:"White", name:"Vintner's Reserve Chenin Blanc", img:"assets/bottle-cheninblanc.png", vintage:"2024", region:"California",    price:"$17.00", status:"", rating:"4.3 · 240", delivery:true },
+  { line:"Red",   name:"Vintner's Reserve Merlot", img:"assets/bottle-merlot.png",            vintage:"2023", region:"Sonoma County", price:"$20.00", status:"", rating:"4.4 · 501", delivery:false },
+  { line:"White", name:"Vintner's Reserve Riesling", img:"assets/bottle-riesling.png",        vintage:"2024", region:"Monterey County", price:"$15.00", status:"", rating:"4.5 · 289", delivery:false },
 ];
 
 function cardHTML(p) {
   const lineClass = p.line.toLowerCase() === "rosé" ? "rose" : p.line.toLowerCase();
   const statusTag = p.status ? `<span class="tag status">${p.status}</span>` : "";
+  const deliveryTag = p.delivery
+    ? `<span class="tag onehr">⚡ 1-hr</span>`
+    : `<span class="tag ships">Ships in 2–4 days</span>`;
   return `
   <a class="card" href="product.html">
     <div class="thumb">
       <div class="badges">
         <span class="tag line ${lineClass}"><span class="dot"></span> ${p.line}</span>
         ${statusTag}
-        <span class="tag onehr">⚡ 1-hr</span>
+        ${deliveryTag}
       </div>
       <img src="${p.img}" alt="${p.name}" loading="lazy" />
     </div>
@@ -39,16 +44,33 @@ function cardHTML(p) {
 }
 
 // ---------- On-demand catalog (KJ Now page) ----------
+// The same five hero SKUs the NBA pages used, carried over as the evergreen
+// delivery set. These are the wines with the deepest GoPuff + local coverage.
 const NOW_PRODUCTS = [
-  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Chardonnay", img:"assets/bottle-chardonnay.png", size:"750ml", abv:"13.5% ABV", price:"$17.00" },
-  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Sauvignon Blanc", img:"assets/bottle-sauvblanc.png", size:"750ml", abv:"13% ABV", price:"$15.00" },
-  { line:"Red",   format:"750ml bottle", name:"Vintner's Reserve Pinot Noir", img:"assets/bottle-pinotnoir.png", size:"750ml", abv:"13.5% ABV", price:"$20.00" },
-  { line:"Red",   format:"750ml bottle", name:"Vintner's Reserve Cabernet Sauvignon", img:"assets/bottle-cabernet.png", size:"750ml", abv:"13.5% ABV", price:"$20.00" },
-  { line:"Rosé",  format:"750ml bottle", name:"Vintner's Reserve Rosé", img:"assets/bottle-rose.png", size:"750ml", abv:"13% ABV", price:"$17.00" },
-  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Chenin Blanc", img:"assets/bottle-cheninblanc.png", size:"750ml", abv:"12.5% ABV", price:"$17.00" },
-  { line:"Red",   format:"750ml bottle", name:"Vintner's Reserve Merlot", img:"assets/bottle-merlot.png", size:"750ml", abv:"13.5% ABV", price:"$20.00" },
-  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Riesling", img:"assets/bottle-riesling.png", size:"750ml", abv:"11.5% ABV", price:"$15.00" },
+  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Chardonnay", img:"assets/bottle-chardonnay.png", size:"750ml", abv:"13.5% ABV", price:"$17.00", note:"America's most-loved Chardonnay" },
+  { line:"Red",   format:"750ml bottle", name:"Vintner's Reserve Cabernet Sauvignon", img:"assets/bottle-cabernet.png", size:"750ml", abv:"13.5% ABV", price:"$20.00", note:"Sonoma County · dark fruit, cocoa" },
+  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Sauvignon Blanc", img:"assets/bottle-sauvblanc.png", size:"750ml", abv:"13% ABV", price:"$15.00", note:"Citrus, crisp, chilled and ready" },
+  { line:"Red",   format:"750ml bottle", name:"Vintner's Reserve Pinot Noir", img:"assets/bottle-pinotnoir.png", size:"750ml", abv:"13.5% ABV", price:"$20.00", note:"Cherry and baking spice" },
+  { line:"White", format:"750ml bottle", name:"Vintner's Reserve Chenin Blanc", img:"assets/bottle-cheninblanc.png", size:"750ml", abv:"12.5% ABV", price:"$17.00", note:"Melon and honeysuckle" },
 ];
+
+// ---------- Evergreen occasions (replaces the NBA moment framing) ----------
+const OCCASIONS = [
+  { icon:"🍽️", title:"Dinner starts in an hour",  copy:"The bottle you meant to pick up on the way home, at your door before the oven timer.", pick:"Chardonnay" },
+  { icon:"🎁", title:"Last-minute host gift",     copy:"Invited tonight and empty-handed? Send a bottle to their address, not yours.",        pick:"Cabernet Sauvignon" },
+  { icon:"☀️", title:"The patio ran dry",          copy:"Everyone stayed later than planned. Restock without anyone leaving.",                  pick:"Sauvignon Blanc" },
+  { icon:"🎉", title:"People are already here",    copy:"Four bottles, one hour, no run to the store in the middle of your own party.",        pick:"Pinot Noir" },
+];
+
+function occasionHTML(o) {
+  return `
+  <div class="occ-card">
+    <div class="occ-icon" aria-hidden="true">${o.icon}</div>
+    <h3>${o.title}</h3>
+    <p>${o.copy}</p>
+    <div class="occ-pick">Popular pick <b>${o.pick}</b></div>
+  </div>`;
+}
 
 function nowCardHTML(p) {
   const lineClass = p.line.toLowerCase() === "rosé" ? "rose" : p.line.toLowerCase();
@@ -62,6 +84,7 @@ function nowCardHTML(p) {
     <div class="now-body">
       <div class="now-format"><span class="tag line ${lineClass}"><span class="dot"></span> ${p.line}</span> · ${p.format}</div>
       <h3>${p.name.replace("Vintner's Reserve ", "")}</h3>
+      ${p.note ? `<div class="now-note">${p.note}</div>` : ""}
       <div class="now-foot"><span class="now-size">${p.size}</span><span class="now-price">${p.price}</span></div>
     </div>
   </div>`;
@@ -72,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (grid) grid.innerHTML = PRODUCTS.map(cardHTML).join("");
   const nowGrid = document.getElementById("nowGrid");
   if (nowGrid) nowGrid.innerHTML = NOW_PRODUCTS.map(nowCardHTML).join("");
+  const occGrid = document.getElementById("occGrid");
+  if (occGrid) occGrid.innerHTML = OCCASIONS.map(occasionHTML).join("");
   // restore cart count
   const c = sessionStorage.getItem("cartCount");
   if (c) setCartCount(parseInt(c, 10));
